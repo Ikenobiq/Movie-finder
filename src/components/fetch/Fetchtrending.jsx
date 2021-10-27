@@ -8,7 +8,7 @@ export const fetchTrending = () => {
     return response.data.results;
   });
 };
-export const searchMovie = (query) => {
+export const searchMovies = (query) => {
   return axios.get("/search/movie", { params: { language: "en - US", query } });
 };
 

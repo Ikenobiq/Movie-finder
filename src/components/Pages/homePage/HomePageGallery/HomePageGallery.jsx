@@ -1,4 +1,4 @@
-import HomePageGalleryItem from "./HomePageGalleryItem/HomePageGalleryItem";
+import HomePageGalleryItem from "../HomePageGalleryItem/HomePageGalleryItem";
 
 const HomePageGallery = ({ trending }) => {
   return (
