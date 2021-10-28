@@ -2,7 +2,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import SearchForm from "../../clients/SearchForm";
 import MovieList from "../../clients/MovieList";
 import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import { searchMovies } from "../../fetch/Fetchtrending";
 
 const MoviesPage = () => {

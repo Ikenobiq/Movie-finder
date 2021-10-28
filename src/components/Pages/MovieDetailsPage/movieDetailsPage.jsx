@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import { getMovieInfo } from "../../fetch/Fetchtrending";
 import {
   NavLink,
@@ -27,7 +27,9 @@ const MovieDetailsPage = () => {
       try {
         const { data } = await getMovieInfo(movieId);
         setMovie(data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error.message);
+      }
     };
     fetchMovie();
   }, [movieId]);
