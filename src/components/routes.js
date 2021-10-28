@@ -1,14 +1,14 @@
 import { Switch, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import { route } from "./route";
+import { route } from "./Route";
 const HomePage = lazy(() => import("../components/Pages/homePage/HomePage"));
 const MoviesPage = lazy(() =>
-  import("../components/Pages/MoviesPage/moviesPage"),
+  import("../components/Pages/MoviesPage/moviesPage")
 );
 const MovieDetailsPage = lazy(() =>
-  import("./Pages/MovieDetailsPage/movieDetailsPage"),
+  import("./Pages/MovieDetailsPage/movieDetailsPage")
 );
-// const NotFound = lazy(() => import("./Pages/notFound/notFound"));
+const NotFound = lazy(() => import("./Pages/notFound/notFound"));
 
 const Routes = () => {
   return (
@@ -22,6 +22,9 @@ const Routes = () => {
         </Route>
         <Route path={route.MOVIE_DETAILS_PAGE}>
           <MovieDetailsPage title="Movie Details Page" />
+        </Route>
+        <Route>
+          <NotFound title="Not Found" />
         </Route>
       </Switch>
     </Suspense>

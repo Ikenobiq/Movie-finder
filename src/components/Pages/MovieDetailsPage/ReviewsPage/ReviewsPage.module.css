@@ -1,0 +1,19 @@
+.list {
+  list-style: none;
+}
+.item {
+}
+.author {
+  font-weight: 700;
+  font-size: 20px;
+}
+.review {
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: justify;
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: 500px;
+}

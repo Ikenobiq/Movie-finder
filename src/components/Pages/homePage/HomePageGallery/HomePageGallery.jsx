@@ -1,9 +1,9 @@
 import HomePageGalleryItem from "../HomePageGalleryItem/HomePageGalleryItem";
-
+import styles from "./HomePageGallery.module.css";
 const HomePageGallery = ({ trending }) => {
   return (
     <main>
-      <ul>
+      <ul className={styles.list}>
         {trending.map((trends) => (
           <HomePageGalleryItem key={trends.id} trends={trends} />
         ))}

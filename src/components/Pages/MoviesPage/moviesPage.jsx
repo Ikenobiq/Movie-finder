@@ -10,7 +10,7 @@ const MoviesPage = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const onSubmit = ({ query }) => {
+  const onSubmit = (query) => {
     history.push({
       pathname: location.pathname,
       search: `query=${query}`,
@@ -22,6 +22,7 @@ const MoviesPage = () => {
       try {
         const searchParams = new URLSearchParams(location.search);
         const searchText = searchParams.get("query");
+        console.log(searchText);
         const { data } = await searchMovies(searchText);
         setList(data.results);
       } catch (error) {}
@@ -29,11 +30,6 @@ const MoviesPage = () => {
     if (location.search) {
       fetchMovies();
     }
-
-    //   if(location.search){
-    //     setState(prevState => ({...prevState, loading: true}));
-    //     fetchPosts()
-    // }
   }, [location.search]);
 
   return (

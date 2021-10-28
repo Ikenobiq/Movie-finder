@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 50px;
+  border-bottom: 1px solid black;
+}
+.home {
+  margin-top: 15px;
+  margin-right: 20px;
+  padding: 10px;
+  background: rgb(255, 102, 0);
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  min-width: 70px;
+}
+.movies {
+  margin-top: 15px;
+  margin-right: 20px;
+  padding: 10px;
+  background: rgb(0, 238, 255);
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  min-width: 70px;
+}

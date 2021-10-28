@@ -3,7 +3,7 @@ import axios from "axios";
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.params = { api_key: "302099a3cae86a11e9b200070fd82750" };
 export const fetchTrending = () => {
-  return axios.get("/trending/all/day").then((response) => {
+  return axios.get("/trending/movie/day").then((response) => {
     console.log(response);
     return response.data.results;
   });
@@ -33,6 +33,13 @@ export const getMovieReviews = (id, page = 1) => {
     params: {
       language: "en-EN",
       page,
+    },
+  });
+};
+export const getMovieCredits = (id) => {
+  return axios.get(`/movie/${id}/credits`, {
+    params: {
+      language: "ru-RU",
     },
   });
 };

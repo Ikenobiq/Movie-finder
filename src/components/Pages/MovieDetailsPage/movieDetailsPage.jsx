@@ -10,11 +10,11 @@ import {
   Route,
   useHistory,
 } from "react-router-dom";
-// import styles from "./MovieDetailsPage.module.css";
-import { route } from "../../route";
+import { route } from "../../Route";
+import styles from "./MovieDetailsPage.module.css";
 
-const CastPage = lazy(() => import("./CastPage"));
-const ReviewsPage = lazy(() => import("./ReviewPage"));
+const CastPage = lazy(() => import("./CastPage/CastPage"));
+const ReviewsPage = lazy(() => import("./ReviewsPage/ReviewsPage"));
 
 const MovieDetailsPage = () => {
   const location = useLocation();
@@ -43,58 +43,60 @@ const MovieDetailsPage = () => {
 
   const imagePath = "https://image.tmdb.org/t/p/w500";
   return (
-    <>
+    <main className={styles.main}>
       {movie && (
         <>
-          <button  type="button" onClick={handleBack}>
+          <button className={styles.buttonn} type="button" onClick={handleBack}>
             Go back
           </button>
-          <div >
-            <div >
+          <div className={styles.contentDiv}>
+            <div className={styles.imgDiv}>
               <img
                 src={imagePath + movie.poster_path}
                 alt="poster"
-                width="250"
+                width="400"
               />
             </div>
-            <section >
-              <h2 >
+            <section>
+              <h2 className={styles.movieTitle}>
                 {movie.title} ({movie.release_date.slice(0, 4)})
               </h2>
-              <p>User Score: {movie.vote_average * 10}%</p>
-              <h3 >Overview</h3>
-              <span>{movie.overview}</span>
-              <h3 >Genres</h3>
-              <span>{movie.genres.map((genre) => genre.name).join(" ")}</span>
-            </section>
-          </div>
-          <div>
-            <h3 >Additional information</h3>
-            <nav >
-              <NavLink
-                to={{
-                  pathname: `/movies/${movieId}/credits`,
-                  state: {
-                    from: location.state.from,
-                  },
-                }}
-                
-              >
-                Cast{" "}
-              </NavLink>
+              <p className={styles.score}>
+                User Score: {movie.vote_average * 10}%
+              </p>
+              <h3 className={styles.overviewTitle}>Overview:</h3>
+              <p className={styles.overview}>{movie.overview}</p>
+              <h3 className={styles.genresTitle}>Genres</h3>
+              <span className={styles.genresList}>
+                {movie.genres.map((genre) => genre.name).join(" ")}
+              </span>
+              <div>
+                <h3 className={styles.info}>Additional information</h3>
+                <nav>
+                  <NavLink
+                    className={styles.navLink}
+                    to={{
+                      pathname: `/movies/${movieId}/credits`,
+                      state: {
+                        from: location?.state?.from,
+                      },
+                    }}>
+                    Cast{" "}
+                  </NavLink>
 
-              <NavLink
-                to={{
-                  pathname: `/movies/${movieId}/reviews`,
-                  state: {
-                    from: location.state.from,
-                  },
-                }}
-                
-              >
-                Reviews{" "}
-              </NavLink>
-            </nav>
+                  <NavLink
+                    className={styles.navLink}
+                    to={{
+                      pathname: `/movies/${movieId}/reviews`,
+                      state: {
+                        from: location?.state?.from,
+                      },
+                    }}>
+                    Reviews{" "}
+                  </NavLink>
+                </nav>
+              </div>
+            </section>
           </div>
 
           <Suspense>
@@ -110,7 +112,7 @@ const MovieDetailsPage = () => {
           </Suspense>
         </>
       )}
-    </>
+    </main>
   );
 };
 
